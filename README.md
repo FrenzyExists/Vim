@@ -2,8 +2,15 @@
 
 Quiet Vim theme
 
-![](./vim.png)
+![](./screenshots/vim.png)
 
-## Installation
+## Getting Started
 
-Drop `quiet.vim` into your colors directory
+### Instalation
+
+* vim-plug
+```vim
+Plug 'QuietTheme/Vim'
+
+```
+
