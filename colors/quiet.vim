@@ -9,27 +9,29 @@ let g:colors_name="quiet"
 let colors_name="quiet"
 
 
-let s:black       = { "gui": "#181e23", "cterm": "236" }
-let s:red         = { "gui": "#ff8080", "cterm": "168" }
-let s:green       = { "gui": "#97d59b", "cterm": "114" }
-let s:yellow      = { "gui": "#fffe80", "cterm": "180" }
-let s:blue        = { "gui": "#80d1ff", "cterm": "75"  }
-let s:purple      = { "gui": "#c780ff", "cterm": "176" }
-let s:cyan        = { "gui": "#80ffe4", "cterm": "73"  }
-let s:white       = { "gui": "#d5d5d5", "cterm": "188" }
+let s:black       = { "gui": "#181E23", "cterm": "236" }
+let s:red         = { "gui": "#FF8080", "cterm": "168" }
+let s:green       = { "gui": "#97D59B", "cterm": "114" }
+let s:yellow      = { "gui": "#FFFE80", "cterm": "180" }
+let s:blue        = { "gui": "#80D1FF", "cterm": "75"  }
+let s:purple      = { "gui": "#C780FF", "cterm": "176" }
+let s:cyan        = { "gui": "#80FFE4", "cterm": "73"  }
+let s:white       = { "gui": "#B6C4DB", "cterm": "188" }
 
 let s:fg          = s:white
 let s:bg          = s:black
 
 let s:comment_fg  = { "gui": "#384149", "cterm": "241" }
-let s:gutter_bg   = { "gui": "#181e23", "cterm": "236" }
-let s:gutter_fg   = { "gui": "#384149", "cterm": "247" }
+let s:gutter_bg   = { "gui": "#242D35", "cterm": "236" }
+let s:gutter_fg   = { "gui": "#1E272F", "cterm": "247" }
+let s:num_col_bg  = { "gui": "#181E23", "cterm": "237" }
+let s:num_col_fg  = { "gui": "#384149", "cterm": "237" }
 let s:non_text    = { "gui": "#384149", "cterm": "239" }
 
-let s:cursor_line = { "gui": "#384149", "cterm": "237" }
+let s:cursor_line = { "gui": "#12181D", "cterm": "234" }
 let s:color_col   = { "gui": "#384149", "cterm": "237" }
 
-let s:selection   = { "gui": "#384149", "cterm": "239" }
+let s:selection   = { "gui": "#1E272F", "cterm": "239" }
 let s:vertsplit   = { "gui": "#384149", "cterm": "237" }
 
 
@@ -59,8 +61,8 @@ call s:h("Cursor", s:bg, s:blue, "")
 call s:h("CursorColumn", "", s:cursor_line, "")
 call s:h("CursorLine", "", s:cursor_line, "")
 
-call s:h("LineNr", s:gutter_fg, s:gutter_bg, "")
-call s:h("CursorLineNr", s:fg, "", "")
+call s:h("LineNr", s:num_col_fg, s:num_col_bg, "")
+call s:h("CursorLineNr", s:fg, s:gutter_fg, "")
 
 call s:h("DiffAdd", s:green, "", "")
 call s:h("DiffChange", s:yellow, "", "")
