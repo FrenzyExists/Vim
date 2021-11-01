@@ -1,7 +1,3 @@
-# Vim
-
-Quiet Vim theme
-
 ![](./screenshots/banner.png)
 
 ## Getting Started
