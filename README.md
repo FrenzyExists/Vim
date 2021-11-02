@@ -1,4 +1,7 @@
+# Quiet theme for Vim
+
 ![](./screenshots/banner.png)
+Huge thanks to [FrenzyExists](https://github.com/FrenzyExists) for the banner!
 
 ## Getting Started
 
