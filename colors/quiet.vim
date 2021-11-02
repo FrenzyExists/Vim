@@ -13,6 +13,7 @@ let s:black       = { "gui": "#181E23", "cterm": "236" }
 let s:red         = { "gui": "#FF8080", "cterm": "168" }
 let s:green       = { "gui": "#97D59B", "cterm": "114" }
 let s:yellow      = { "gui": "#FFFE80", "cterm": "180" }
+let s:orange      = { "gui": "#FFBF80", "cterm": "182" }
 let s:blue        = { "gui": "#80D1FF", "cterm": "75"  }
 let s:purple      = { "gui": "#C780FF", "cterm": "176" }
 let s:cyan        = { "gui": "#80FFE4", "cterm": "73"  }
@@ -160,19 +161,47 @@ call s:h("Todo", s:purple, "", "")
 " }
 
 
-" Plugins {
+" --| Plugins |--
+
 " GitGutter
 call s:h("GitGutterAdd", s:green, s:gutter_bg, "")
 call s:h("GitGutterDelete", s:red, s:gutter_bg, "")
 call s:h("GitGutterChange", s:yellow, s:gutter_bg, "")
 call s:h("GitGutterChangeDelete", s:red, s:gutter_bg, "")
+
+
 " Fugitive
 call s:h("diffAdded", s:green, "", "")
 call s:h("diffRemoved", s:red, "", "")
-" }
 
 
-" Git {
+" vim-pandoc/vim-pandoc-syntax
+hi! link pandocAtxHeader markdownH1
+hi! link pandocBlockQuote markdownBlockquote
+hi! link pandocCiteAnchor Operator
+hi! link pandocCiteKey pandocReferenceLabel
+hi! link pandocDefinitionBlockMark Operator
+hi! link pandocEmphasis markdownItalic
+hi! link pandocFootnoteID pandocReferenceLabel
+hi! link pandocFootnoteIDHead markdownLinkDelimiter
+hi! link pandocFootnoteIDTail pandocFootnoteIDHead
+hi! link pandocGridTableDelims pandocTableDelims
+hi! link pandocGridTableHeader pandocTableDelims
+hi! link pandocOperator Operator
+hi! link pandocPipeTableDelims pandocTableDelims
+hi! link pandocReferenceDefinition pandocReferenceLabel
+hi! link pandocReferenceLabel markdownLinkText
+hi! link pandocReferenceURL markdownUrl
+hi! link pandocSimpleTableHeader pandocAtxHeader
+hi! link pandocStrong markdownBold
+hi! link pandocTableHeaderWord pandocAtxHeader
+hi! link pandocUListItemBullet Operator
+
+
+" vim-plug
+call s:h("plugDeleted", s:red, "", "")
+
+" Git
 call s:h("gitcommitComment", s:comment_fg, "", "")
 call s:h("gitcommitUnmerged", s:red, "", "")
 call s:h("gitcommitOnBranch", s:fg, "", "")
@@ -192,10 +221,10 @@ hi link gitcommitSelected gitcommitComment
 hi link gitcommitDiscardedArrow gitcommitDiscardedFile
 hi link gitcommitSelectedArrow gitcommitSelectedFile
 hi link gitcommitUnmergedArrow gitcommitUnmergedFile
-" }
 
-" Fix colors in neovim terminal buffers {
+
   if has('nvim')
+    " Fix colors in neovim terminal buffers
     let g:terminal_color_0 = s:black.gui
     let g:terminal_color_1 = s:red.gui
     let g:terminal_color_2 = s:green.gui
@@ -214,5 +243,59 @@ hi link gitcommitUnmergedArrow gitcommitUnmergedFile
     let g:terminal_color_15 = s:white.gui
     let g:terminal_color_background = s:bg.gui
     let g:terminal_color_foreground = s:fg.gui
+
+    " Treesitter Support
+    call s:hi("Constructor", s:gui02, "", "", "", "", "")
+    call s:hi("Emphasis", s:gui02, "", "", "", "", "")
+    call s:hi("Field", s:gui0B, "", "", "", "", "")
+    call s:hi("FunctionBuiltin", s:gui0D, "", "", "", "", "")
+    call s:hi("FuncMacro", s:gui0E, "", "", "", "", "")
+    call s:hi("Method", s:gui0B, "", "", "", "", "")
+    call s:hi("Parameter", s:gui09, "", "", "", "", "")
+    call s:hi("TypeBuiltin", s:gui0F, "", "", "", "", "")
+    call s:hi("TreeSitterVariable", s:gui0B, "", "", "", "", "")
+    hi! link TSAnnotation PreProc
+    hi! link TSAttribute Decorator
+    hi! link TSBoolean Boolean
+    hi! link TSCharacter Character
+    hi! link TSConditional Conditional
+    hi! link TSConstant Constant
+    hi! link TSConstBuiltin Structure
+    hi! link TSConstructor Constructor
+    hi! link TSEmphasis Emphasis
+    hi! link TSError Error
+    hi! link TSException Exception
+    hi! link TSFloat Float
+    hi! link TSField Field
+    hi! link TSFunction Function
+    hi! link TSFuncBuiltin FunctionBuiltin
+    hi! link TSFuncMacro FuncMacro " FuncMacro is mostly used in rust
+    hi! link TSKeyword Keyword
+    hi! link TSKeywordFunction Function
+    hi! link TSKeywordOperator Operator
+    hi! link TSLabel Label
+    hi! link TSLiteral Constant
+    hi! link TSMethod Method
+    hi! link TSNamespace Directory
+    hi! link TSNumber Number
+    hi! link TSOperator Operator
+    hi! link TSParameter Parameter
+    hi! link TSPunctBracket Delimiter
+    hi! link TSPunctDelimiter Delimiter
+    hi! link TSPunctSpecial DelimterAlt
+    hi! link TSRepeat Repeat
+    hi! link TSString String
+    hi! link TSStringEscape SpecialKey
+    hi! link TSStringRegex String
+    hi! link TSStrong Bold
+    hi! link TSStructure Structure
+    hi! link TSTag Keyword
+    hi! link TSTagDelimiter Delimiter
+    hi! link TSText String
+    hi! link TSType Type
+    hi! link TSTypeBuiltin TypeBuiltin
+    hi! link TSUnderline Underlined
+    hi! link TSURI URL
+    hi! link TSVariable Variable
+    hi! link TSVariableBuiltin TreeSitterVariable
   endif
-" }
